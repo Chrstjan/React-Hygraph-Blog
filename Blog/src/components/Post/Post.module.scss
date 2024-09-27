@@ -1,0 +1,21 @@
+.postStyling {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid #1f1f1f;
+    width: 70vw;
+    text-align: center;
+    padding: 0 1rem;
+
+    img {
+        width: 100%;
+
+        @media (min-width: 1280px) {
+            img {
+                width: 70%;
+            }
+        }
+    }
+}

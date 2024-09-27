@@ -1,9 +1,13 @@
 import { useQuery } from "@tanstack/react-query"
 import { request } from "graphql-request"
-import Markdown from 'markdown-to-jsx'
 import { allBlogs } from "../queries/AllBlogs"
+import { Post } from "../components/Post/Post"
+import { BlogFilter } from "../components/BlogFilter/BlogFilter"
+import { useState } from "react"
 
 export const LandingPage = () => {
+    const [blogFilter, setBlogFilter] = useState("");
+    const [filteredData, setFilteredData] = useState([]);
 
   const {data, isLoading, error} = useQuery(
     {
@@ -14,18 +18,14 @@ export const LandingPage = () => {
 
   console.log(data);
 
+  if (isLoading) {
+    return (<h2>Fetching Data</h2>);
+  }
+
   return (
     <section style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: "2rem"}}>
-        {data?.gingerBlogs?.map((item) => {
-            return (
-                <article key={item.title}>
-                    <h3>{item.title}</h3>
-                    <p>{item.slug}</p>
-                    <img src={item.images[0].url} />
-                    <Markdown>{item.content}</Markdown>
-                </article>
-            )
-        })}
+        <BlogFilter setBlogFilter={setBlogFilter}/>
+        <Post data={data}/>
     </section>
   )
 }
