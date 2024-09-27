@@ -9,12 +9,39 @@
     text-align: center;
     padding: 0 1rem;
 
+    @media (min-width: 1280px) {
+        flex-direction: row;
+        padding: 0;
+    }
+
+    span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #1c1c1c;
+        width: 100%;
+
+        @media (min-width: 1280px) {
+            padding: 0;
+            border: 0;
+            border-right: 2px solid #1c1c1c;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
     img {
         width: 100%;
 
         @media (min-width: 1280px) {
             img {
                 width: 70%;
+                
             }
         }
     }

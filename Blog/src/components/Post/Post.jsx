@@ -7,10 +7,12 @@ export const Post = ({data}) => {
         {data?.gingerBlogs?.map((item) => {
             return (
                 <article className={style.postStyling} key={item.title}>
-                    <h3>{item.title}</h3>
-                    <p>{item.slug}</p>
-                    <p>{item.releaseDate}</p>
-                    <img src={item.images[0].url} />
+                    <span>
+                     <h3>{item.title}</h3>
+                      <p>{item.slug}</p>
+                      <p>{item.releaseDate}</p>
+                     <img src={item.images[0].url} />
+                    </span>
                     <Markdown>{item.content}</Markdown>
                 </article>
             )

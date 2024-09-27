@@ -1,0 +1,15 @@
+.headerStyling {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #0c1f3c;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    color: #fff;
+    
+    h1, p {
+        margin: 0;
+        padding: 0 1rem;
+    }
+}
